@@ -1,0 +1,249 @@
+/* =============================================================
+   Cursor Design System — Foundations
+   Source of truth: uploads/DESIGN.md (alpha)
+   CursorGothic is licensed; we substitute Inter (-1.5% tracking) per
+   the DESIGN.md note. JetBrains Mono is the original family.
+   ============================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* JetBrains Mono — local brand files */
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Thin.ttf") format("truetype");        font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-ThinItalic.ttf") format("truetype");  font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-ExtraLight.ttf") format("truetype");       font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-ExtraLightItalic.ttf") format("truetype"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Light.ttf") format("truetype");       font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-LightItalic.ttf") format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Italic.ttf") format("truetype");  font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Medium.ttf") format("truetype");       font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-MediumItalic.ttf") format("truetype"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-SemiBold.ttf") format("truetype");       font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-SemiBoldItalic.ttf") format("truetype"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Bold.ttf") format("truetype");       font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-BoldItalic.ttf") format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-ExtraBold.ttf") format("truetype");       font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-ExtraBoldItalic.ttf") format("truetype"); font-weight: 800; font-style: italic; font-display: swap; }
+
+:root {
+  /* ---------- Brand & Accent ---------- */
+  --primary:           #f54e00;   /* Cursor Orange */
+  --primary-active:    #d04200;   /* Press */
+  --on-primary:        #ffffff;
+
+  /* ---------- Surface ---------- */
+  --canvas:            #f7f7f4;   /* warm cream page floor */
+  --canvas-soft:       #fafaf7;   /* IDE pane bg inside mockups */
+  --surface-card:      #ffffff;   /* card surface */
+  --surface-strong:    #e6e5e0;   /* badges / tag pills */
+
+  /* ---------- Hairlines ---------- */
+  --hairline:          #e6e5e0;   /* 1px divider */
+  --hairline-soft:     #efeee8;
+  --hairline-strong:   #cfcdc4;
+
+  /* ---------- Text ---------- */
+  --ink:               #26251e;   /* warm near-black */
+  --body:              #5a5852;
+  --body-strong:       #26251e;
+  --muted:             #807d72;
+  --muted-soft:        #a09c92;
+
+  /* ---------- Timeline (in-product agent only) ---------- */
+  --timeline-thinking: #dfa88f;   /* peach */
+  --timeline-grep:     #9fc9a2;   /* mint */
+  --timeline-read:     #9fbbe0;   /* pastel blue */
+  --timeline-edit:     #c0a8dd;   /* lavender */
+  --timeline-done:     #c08532;   /* warm gold */
+
+  /* ---------- Semantic ---------- */
+  --semantic-success:  #1f8a65;
+  --semantic-error:    #cf2d56;
+
+  /* ---------- Foreground aliases (semantic) ---------- */
+  --fg1: var(--ink);
+  --fg2: var(--body);
+  --fg3: var(--muted);
+  --fg4: var(--muted-soft);
+
+  /* ---------- Type families ----------
+     CursorGothic substitute: Inter @ -1.5% tracking.
+     If the licensed family lands, swap the first entry. */
+  --font-display: "Inter", "CursorGothic", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    "Inter", "CursorGothic", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ---------- Spacing tokens ---------- */
+  --space-xxs:   4px;
+  --space-xs:    8px;
+  --space-sm:   12px;
+  --space-base: 16px;
+  --space-md:   20px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-xxl:  48px;
+  --space-section: 80px;
+
+  /* ---------- Radii ---------- */
+  --radius-none: 0px;
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;   /* CTA buttons, inputs */
+  --radius-lg:  12px;   /* cards, IDE panes */
+  --radius-xl:  16px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1200px;
+  --nav-height:    64px;
+}
+
+/* =============================================================
+   Semantic typography roles
+   Display weight stays at 400. Negative tracking on display only.
+   ============================================================= */
+
+.t-display-mega,
+h1.cs {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -2.16px;
+  color: var(--ink);
+}
+
+.t-display-lg,
+h2.cs {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.72px;
+  color: var(--ink);
+}
+
+.t-display-md,
+h3.cs {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.325px;
+  color: var(--ink);
+}
+
+.t-display-sm,
+h4.cs {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.11px;
+  color: var(--ink);
+}
+
+.t-title-md {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.t-title-sm {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.t-body-md,
+p.cs {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+.t-body-tracked {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.08px;
+  color: var(--body);
+}
+
+.t-body-sm {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+.t-caption {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.t-caption-uppercase {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.88px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.t-code,
+code.cs,
+pre.cs {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.t-button {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.t-nav-link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+/* =============================================================
+   Base reset for design system pages
+   ============================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
